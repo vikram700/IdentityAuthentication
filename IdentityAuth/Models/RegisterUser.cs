@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using IdentityAuth.Utilities.CustomValidators;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,6 +23,8 @@ namespace IdentityAuth.Models
         [Required]
         [EmailAddress]
         [Remote(action: "IsEmailAlreadyInUse", controller: "Auth")]
+        [ValidEmailDomain(allowedDomain: "gmail.com", 
+            ErrorMessage = "Please provide email with domain gmail.com")]
         public string Email { get; set; }
 
         [Required]
