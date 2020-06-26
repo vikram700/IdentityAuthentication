@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IdentityAuth.Entities
 {
-    public class AppDbContext : IdentityDbContext
+    public class AppDbContext : IdentityDbContext<AppIdentityUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) 
             : base(options)
