@@ -116,5 +116,21 @@ namespace IdentityAuth.Controllers
 
             return RedirectToAction("index", "home");
         }
+
+        [AcceptVerbs("Get", "Post")]
+        [AllowAnonymous]
+        public async Task<JsonResult> IsEmailAlreadyInUse(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user is null)
+            {
+                return Json(true);
+            }
+            else
+            {
+                return Json($"Email is already in use, try with other email or go to login page");
+            }
+        }
     }
 }

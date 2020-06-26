@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace IdentityAuth.Models
 
         [Required]
         [EmailAddress]
+        [Remote(action: "IsEmailAlreadyInUse", controller: "Auth")]
         public string Email { get; set; }
 
         [Required]
