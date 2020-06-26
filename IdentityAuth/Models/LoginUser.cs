@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IdentityAuth.Utilities.CustomValidators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace IdentityAuth.Models
     {   
         [Required]
         [EmailAddress]
+        [ValidEmailDomain(allowedDomain: "gmail.com",
+            ErrorMessage = "Please provide email with domain gmail.com")]
         public string Email { get; set; }
 
         [Required]
