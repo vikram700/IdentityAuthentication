@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Administrator" asp-action="ListRoles">Administrator</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     @if (signInManager.IsSignedIn(User))
